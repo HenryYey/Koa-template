@@ -1,14 +1,13 @@
 
 'use strict'
-
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')()
 const staticCache = require('koa-static-cache')
 const config = require('./config')
-const publicRouter = require('../routes/public')
-const privateRouter = require('../routes/private')
-const { loggerMiddleware } = require('../middlewares/logger')
-const { errorHandler, responseHandler } = require('./middlewares/reponse')
+const publicRouter = require('./routes/public.js')
+const privateRouter = require('./routes/private')
+const { loggerMiddleware } = require('./middlewares/logger')
+const { errorHandler, responseHandler } = require('./middlewares/response')
 
 const app = new Koa()
 var cors = require('koa2-cors');
