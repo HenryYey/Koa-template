@@ -1,4 +1,6 @@
-'use strict'
+/**
+ * 校验鉴权中间件
+ */
 
 const koaJwt = require('koa-jwt')
 const jwt = require('jsonwebtoken')

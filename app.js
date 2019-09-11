@@ -1,5 +1,4 @@
 
-'use strict'
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')()
 const staticCache = require('koa-static-cache')

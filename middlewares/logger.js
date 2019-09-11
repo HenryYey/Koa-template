@@ -1,4 +1,6 @@
-'use strict'
+/**
+ * 日志中间件
+ */
 
 const fs = require('fs')
 const path = require('path')

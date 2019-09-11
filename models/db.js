@@ -1,4 +1,6 @@
-'use strict'
+/**
+ * 使用Sequelize连接mysql
+ */
 
 const Sequelize = require('sequelize')
 const { mysql} = require('../config')

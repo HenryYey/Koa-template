@@ -1,5 +1,6 @@
-'use strict'
-
+/**
+* 公有路由，需要校验鉴权
+*/
 const Router = require('koa-router')
 const controllers = require('../controllers')
 
