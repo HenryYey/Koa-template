@@ -5,14 +5,17 @@ const staticCache = require('koa-static-cache')
 const config = require('./config')
 const publicRouter = require('./routes/public.js')
 const privateRouter = require('./routes/private')
-const { loggerMiddleware } = require('./middlewares/logger')
 const { errorHandler, responseHandler } = require('./middlewares/response')
+const { Logger } = require('koa-ts-logger')
 
+const logger = new Logger({filePath: config.logPath})
 const app = new Koa()
-var cors = require('koa2-cors');
+const cors = require('koa2-cors');
+
 app.use(cors());    //解决跨域问题
-// Logger
-app.use(loggerMiddleware)
+// local Logger
+app.use(logger.httpLogger)
+app.use(logger.getLoggers)
 // Error Handler
 app.use(errorHandler)
 //Middlewares

@@ -19,7 +19,7 @@ function responseHandler(ctx) {
 function errorHandler (ctx, next) {
   return next().catch(err => {
     if (err.code == null) {
-      logger.error(err.stack)
+      ctx.log.error(err.stack)
     }
     ctx.body = {
       code: err.code || -1,

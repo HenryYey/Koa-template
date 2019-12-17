@@ -16,6 +16,9 @@ login.login = async (ctx, next) => {
       password
     }
   })
+
+  ctx.log.info(`user: ${userName}, token: ${password}`);
+  
   ctx.result = {
     token: jwt.sign({
       userName: userName,

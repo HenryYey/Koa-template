@@ -15,6 +15,6 @@ const User = db.define('user', {
 })
 
 // 若表不存在则创建
-User.sync()
+// User.sync()
 
 module.exports = User

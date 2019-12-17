@@ -1,5 +1,4 @@
 {
-
   "name": "koa-template",
   "version": "0.2.0",
   "author": "HenryYe",
@@ -9,19 +8,20 @@
     "prd": "pm2 start bin/www"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
     "fs": "0.0.1-security",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
     "koa-static-cache": "^5.1.2",
+    "koa-ts-logger": "^1.0.4",
     "koa2-cors": "^2.0.6",
     "log4js": "^3.0.6",
     "mysql2": "^1.6.4",
     "router": "^1.3.3",
-    "sequelize": "^4.41.2",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0"
+    "sequelize": "^4.41.2"
   },
   "eslintConfig": {
     "root": true,
