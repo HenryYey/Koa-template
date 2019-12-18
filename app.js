@@ -7,6 +7,7 @@ const publicRouter = require('./routes/public.js')
 const privateRouter = require('./routes/private')
 const { errorHandler, responseHandler } = require('./middlewares/response')
 const { Logger } = require('koa-ts-logger')
+const { cacheMiddleware } = require("./middlewares/cache");
 
 const logger = new Logger({filePath: config.logPath})
 const app = new Koa()
@@ -20,6 +21,7 @@ app.use(logger.getLoggers)
 app.use(errorHandler)
 //Middlewares
 app.use(bodyParser)
+app.use()
 app.use(staticCache(config.publicDir))
 // Routes
 app.use(publicRouter.routes(), publicRouter.allowedMethods())
