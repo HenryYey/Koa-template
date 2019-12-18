@@ -2,11 +2,11 @@
  * 校验鉴权中间件
  */
 
-const koaJwt = require('koa-jwt')
-const jwt = require('jsonwebtoken')
-const config = require('../config')
+import koaJwt from 'koa-jwt'
+import { verify } from 'jsonwebtoken'
+import { secret as _secret } from '../config'
 
-const jwtMiddleware = koaJwt({ secret: config.secret })
+const jwtMiddleware = koaJwt({ secret: _secret })
 class CodedError extends Error {
   constructor (message = '未知错误', code = -1) {
     super(message)
@@ -19,11 +19,11 @@ let AuthenticationError =  class AuthenticationError extends CodedError {
   }
 }
 
-module.exports = function (ctx, next) {
+export default function (ctx, next) {
   // 将 token 中的数据解密后存到 ctx 中
   if (typeof ctx.request.headers.authorization === 'string') {
     const token = ctx.request.headers.authorization.slice(7)
-    ctx.jwtData = jwt.verify(token, config.secret)
+    ctx.jwtData = verify(token, _secret)
   }
   return next()
 }

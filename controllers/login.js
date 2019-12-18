@@ -1,7 +1,9 @@
-'use strict'
+/**
+ * 模板语句，按实际需求修改
+ */
 
-const jwt = require('jsonwebtoken')
-const config = require('../config')
+import jwt from 'jsonwebtoken'
+import config from'../config'
 
 const login = {}
 

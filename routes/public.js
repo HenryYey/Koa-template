@@ -1,12 +1,12 @@
 /**
 * 公有路由，需要校验鉴权
 */
-const Router = require('koa-router')
-const controllers = require('../controllers')
+import Router from 'koa-router'
+import { login } from '../controllers'
 
 const router = new Router()
 router.prefix('/api')
 
-router.post('/login', controllers.login.login)
+router.post('/login', login.login)
 
-module.exports = router
+export default router

@@ -4,22 +4,22 @@
  * Module dependencies.
  */
 
-const app = require('../app')
-const http = require('http')
-const config = require('../config')
+import { callback } from '../app'
+import { createServer } from 'http'
+import { port as _port } from '../config'
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || config.port)
+const port = normalizePort(process.env.PORT || _port)
 // app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-const server = http.createServer(app.callback())
+const server = createServer(callback())
 
 /**
  * Listen on provided port, on all network interfaces.

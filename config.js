@@ -1,8 +1,8 @@
-'use strict'
 
-const path = require('path')
 
-module.exports = {
+import path from 'path'
+
+export default {
   port: '3001',
   secret: 'token',
   publicDir: path.resolve(__dirname, './public'),

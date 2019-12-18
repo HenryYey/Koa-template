@@ -1,14 +1,16 @@
 {
   "name": "koa-template",
-  "version": "0.2.0",
-  "author": "HenryYe",
+  "version": "1.0.0",
+  "author": "hengye <103596420@qq.com>",
   "private": true,
   "scripts": {
     "start": "node bin/www",
-    "prd": "pm2 start bin/www"
+    "prd": "pm2 start bin/www",
+    "test": "cross-env NODE_ENV=test mocha -r test/*.spec.js"
   },
   "dependencies": {
     "babel-eslint": "^10.0.1",
+    "cross-env": "^6.0.3",
     "eslint": "^5.8.0",
     "fs": "0.0.1-security",
     "koa": "^2.7.0",
@@ -19,6 +21,7 @@
     "koa-ts-logger": "^1.0.4",
     "koa2-cors": "^2.0.6",
     "log4js": "^3.0.6",
+    "mocha": "^6.2.2",
     "mysql2": "^1.6.4",
     "node-cache-obj": "^1.0.1",
     "router": "^1.3.3",
@@ -47,5 +50,9 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "supertest": "^4.0.2"
+  }
 }

@@ -4,9 +4,7 @@
  * code是为了方便程序员阅读，自定义响应结果以及错误类型
  */
 
-const { logger } = require('./logger')
-
-function responseHandler(ctx) {
+export const responseHandler = (ctx) => {
   if (ctx.result !== undefined) {
     ctx.type = 'json'
     ctx.body = {
@@ -16,7 +14,7 @@ function responseHandler(ctx) {
   }
 }
 // 这个middleware处理在其它middleware中出现的异常
-function errorHandler (ctx, next) {
+export const errorHandler = (ctx, next) => {
   return next().catch(err => {
     if (err.code == null) {
       ctx.log.error(err.stack)
@@ -27,8 +25,4 @@ function errorHandler (ctx, next) {
     }
     return Promise.resolve()
   })
-}
-module.exports = {
-  responseHandler,
-  errorHandler
 }

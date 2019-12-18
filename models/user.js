@@ -1,15 +1,15 @@
-'use strict'
 
-const Sequelize = require('sequelize')
-const db = require('./db')
 
-const User = db.define('user', {
+import { INTEGER, STRING } from 'sequelize'
+import { define } from './db'
+
+const User = define('user', {
   id: {
-    type: Sequelize.INTEGER,
+    type: INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  userName: Sequelize.STRING
+  userName: STRING
 }, {
   freezeTableName: true
 })
@@ -17,4 +17,4 @@ const User = db.define('user', {
 // 若表不存在则创建
 // User.sync()
 
-module.exports = User
+export default User
