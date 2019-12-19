@@ -1,8 +1,8 @@
 import * as assert from "assert";
-import app from "../app"
-import * as request from 'supertest'
+import app from "../app";
+import * as request from 'supertest';
 
-describe('demo', () => {
+describe('demo', async () => {
   const server = createServer(app.callback())
 
   server.listen(3000)

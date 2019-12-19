@@ -1,7 +1,7 @@
 
 
-import { INTEGER, STRING } from 'sequelize'
-import { define } from './db'
+import { INTEGER, STRING } from 'sequelize';
+import { define } from './db';
 
 const User = define('user', {
   id: {
@@ -12,9 +12,9 @@ const User = define('user', {
   userName: STRING
 }, {
   freezeTableName: true
-})
+});
 
 // 若表不存在则创建
 // User.sync()
 
-export default User
+export default User;

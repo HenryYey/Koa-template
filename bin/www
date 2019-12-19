@@ -1,25 +1,27 @@
 #!/usr/bin/env node
 
+/* eslint-disable */
+
 /**
  * Module dependencies.
  */
 
-import { callback } from '../app'
-import { createServer } from 'http'
-import { port as _port } from '../config'
+const app = require('../app')
+const http = require('http')
+const config = require('../config')
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || _port)
+const port = normalizePort(process.env.PORT || config.port)
 // app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-const server = createServer(callback())
+const server = http.createServer(app.callback())
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -88,3 +90,4 @@ function onListening() {
     : 'port ' + addr.port
   console.log('Listening on ' + bind)
 }
+/* eslint-enable */

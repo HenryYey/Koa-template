@@ -1,9 +1,9 @@
 /**
  * 模板语句，按实际需求修改
  */
-import User from '../models/user'
+import User from '../models/user';
 
-const crud = {}
+const crud = {};
 
 crud.search = async (ctx, next) => {
   try {
@@ -23,51 +23,54 @@ crud.search = async (ctx, next) => {
 
       ctx.cache.setVal({
         key: `user_${userName}`, // 推荐使用md5加密作为key
-        value: result
-      })
+        value: res
+      });
       
       ctx.log.info(`set cache ${userName}`);
     }
   } catch (err) {
-    ctx.log.error(JSON.stringify(err))
-    throw new Error(JSON.stringify(err))
+    ctx.log.error(JSON.stringify(err));
+    throw new Error(JSON.stringify(err));
   }
 
-  return next()
-}
+  return next();
+};
 
 crud.add = async (ctx, next) => {
   try {
     const {
       userName,
       password
-    } = ctx.request.body
+    } = ctx.request.body;
+
     ctx.result = await User.create({
       userName,
       password
-    })
+    });
   } catch (err) {
-    ctx.log.error(JSON.stringify(err))
-    throw new Error(JSON.stringify(err))
+    ctx.log.error(JSON.stringify(err));
+    throw new Error(JSON.stringify(err));
   }
-  return next()
-}
+
+  return next();
+};
 
 crud.delete = async (ctx, next) => {
   try {
     const {
       id
-    } = ctx.request.body
+    } = ctx.request.body;
+
      ctx.result = await User.destroy({
       where: {
         id
       }
-    })
+    });
   } catch (err) {
-    ctx.log.error(JSON.stringify(err))
-    throw new Error(JSON.stringify(err))
+    ctx.log.error(JSON.stringify(err));
+    throw new Error(JSON.stringify(err));
   }
-  return next()
-}
+  return next();
+};
 
-export default crud
+export default crud;
